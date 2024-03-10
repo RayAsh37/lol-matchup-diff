@@ -1,13 +1,35 @@
-// import { useState } from 'react'
+import { useEffect, useState } from 'react';
 // import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css';
-import SearchBox from './components/SearchBox.jsx';
+import Searchbox from './components/Searchbox.jsx';
 
 function App() {
+	//set version list
+	const [versionList, setVersionList] = useState([]);
+	//set version
+	const [version, setVersion] = useState(0);
+	//set items
+	const [items, setItems] = useState([]);
+	//set champion
+	const [champions, setChampions] = useState([]);
+
+	useEffect(() => {
+		fetch('https://ddragon.leagueoflegends.com/api/versions.json')
+			.then((response) => response.json())
+			.then((data) => {
+				setVersionList(data);
+				setVersion(data[0]);
+			});
+	}, []);
+
 	return (
 		<>
-			<SearchBox />
+			<h1>lol-matchup-diff</h1>
+			<Searchbox
+				searchList={versionList}
+				onSearch={setVersion}
+			/>
+			<p>version: {version}</p>
 		</>
 	);
 }
