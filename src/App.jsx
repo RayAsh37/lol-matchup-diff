@@ -7,8 +7,7 @@ function App() {
 	//set version list
 	const [versionList, setVersionList] = useState([]);
 	//set version
-	const [version1, setVersion1] = useState(0);
-	const [version2, setVersion2] = useState(0);
+	const [version, setVersion] = useState(0);
 	//set runes
 	const [runesList, setRunesList] = useState([]);
 	//set items
@@ -70,7 +69,7 @@ function App() {
 			<h1>lol-matchup-diff</h1>
 			<Searchbox
 				searchList={versionList}
-				onSearch={setVersion1}
+				onSearch={setVersion}
 			/>
 			<p>version: {version || 'version not found'}</p>
 			{version && (
