@@ -11,13 +11,15 @@ const Searchbox = ({ searchList, onSearch }) => {
 	return (
 		<>
 			<input
-				type='text'
+				type='search'
+				// text
 				value={searchTerm}
 				onChange={handleInputChange}
 				list='search-options'
 				placeholder='Search...'
 			/>
 			<datalist id='search-options'>
+				{/* {console.log(searchList)} */}
 				{searchList.map((option) => (
 					<option
 						key={option}
