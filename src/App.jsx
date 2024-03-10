@@ -63,7 +63,7 @@ function App() {
 
 	// console.log(runesList);
 	// console.log(itemsList);
-	console.log(championsList);
+	// console.log(championsList);
 	return (
 		<>
 			<h1>lol-matchup-diff</h1>
